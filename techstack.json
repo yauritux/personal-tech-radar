@@ -1,128 +1,128 @@
 [
- {
-  "name": "SpringBoot",
-  "ring": "adopt",
-  "quadrant": "languages & frameworks",
-  "isNew": "FALSE",
-  "description": "makes it easy to create stand-alone, production-grade Spring based Application that you can just run. It takes an opinionated view of the Spring platform and third-party libraries so we can get started with minimum fuss. Most Spring Boot applications need minimal Spring configuration."
- },
- {
-  "name": "Java 8",
-  "ring": "retire",
-  "quadrant": "languages & frameworks",
-  "isNew": "FALSE",
-  "description": "Java is an object-oriented programming and statically typed language that produces software for multiple platforms (write once run anywhere). With the Java 8 release, Java provided supports for functional programming style, new APIs for date-time manipulation, new streaming API, etc."
- },
- {
-  "name": "Java 11",
-  "ring": "adopt",
-  "quadrant": "languages & frameworks",
-  "isNew": "TRUE",
-  "description": "Java 11 is the first long-term-support (LTS) release after Java 8. It comes with new features to provide more functionality beyond Java 8 such as modularity, var keyword, several new methods of String, local variable syntax for Lambda, and absolutely some improvements on the JVM itself."
- },
- {
-  "name": "JUnit5",
-  "ring": "adopt",
-  "quadrant": "languages & frameworks",
-  "isNew": "TRUE",
-  "description": "is a unit testing framework for Java. JUnit5 is a new version of JUnit that allows multiple runners to work simultaneously compared to its predecessor JUnit4 that only have one test runner to execute tests at a time. JUnit5 also makes good use of Java 8 features and more robust and flexible than JUnit4 since it comes with 3 sub-projects, i.e. JUnit Platform, JUnit Jupiter, and JUnit vintage."
- },
- {
-  "name": "JUnit4",
-  "ring": "retire",
-  "quadrant": "languages & frameworks",
-  "isNew": "FALSE",
-  "description": "The most widely used test framework in Java that uses annotations to identify methods that specify a test. It has significant role in the test-driven-development (TDD) process."
- },
- {
-  "name": "ReactJS",
-  "ring": "adopt",
-  "quadrant": "languages & frameworks",
-  "isNew": "FALSE",
-  "description": "is a JavaScript library (i.e. UI toolkit) for building user interfaces. It is declarative, component-based, and the strategic direction for all web UI development at Lulu - note our design system ConstructKit assumes react."
- },
- {
-  "name": "NextJS",
-  "ring": "trial",
-  "quadrant": "languages & frameworks",
-  "isNew": "TRUE",
-  "description": "is a JavaScript framework that gives you the best developer experience with all the features you need for production: hybrid static & server-side rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config is needed. Think of living, CMS v2"
- },
- {
-  "name": "NodeJS",
-  "ring": "adopt",
-  "quadrant": "languages & frameworks",
-  "isNew": "FALSE",
-  "description": "is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser."
- },
- {
-  "name": "JavaScript",
-  "ring": "adopt",
-  "quadrant": "languages & frameworks",
-  "isNew": "FALSE",
-  "description": "is a high-level interpreted programming language that conforms to the ECMAScript specification with dynamic-typing, prototype-based object orientation, and first-class functions. As a multi-paradigm language, JavaScript supports event-driven, functional, and imperative (including object-oriented and prototype-based) programming styles. There is no escaping it - best you learn to love it :-)."
- },
- {
-  "name": "Scrum",
-  "ring": "adopt",
-  "quadrant": "techniques & processes",
-  "isNew": "TRUE",
-  "description": "Within project management, Scrum is a framework for developing, delivering, and sustaining products in a complex environment, with an initial emphasis on software development, although it has been used in other fields including research, sales, marketing and advanced technologies. It is designed for teams of ten or fewer members, who break their work into goals that can be completed within time-boxed iterations called sprints, no longer than one month and most commonly two weeks. The scrum team assess progress in time-boxed daily meetings of 15 minutes or less, called daily scrums (a form of stand-up meeting). At the end of the sprint, the team holds two further meetings: the sprint review which demonstrates the work done to stakeholders to elicit feedback, and sprint restrospective which enables the team to reflect and improve."
- },
- {
-  "name": "Reactive Programming",
-  "ring": "adopt",
-  "quadrant": "techniques & processes",
-  "isNew": "TRUE",
-  "description": "Reactive programming is a concept that describes a design paradigm that relies on asynchronous and non-blocking programming logic to handle real-time updates. It provides an efficient means -- the use of automated data streams -- to handle data updates to content whenever a user makes an inquiry."
- },
- {
-  "name": "Functional Programming",
-  "ring": "adopt",
-  "quadrant": "techniques and processes",
-  "isNew": "TRUE",
-  "description": "is a programming paradigm where programs are constructed by applying and composing functions. It is a declarative programming paradigm in which function definitions are trees of expressions that map values to other values, rather than a sequence of imperative statements which update the running state of the program."
- },
- {
-  "name": "Unit Testing",
-  "ring": "adopt",
-  "quadrant": "techniques and processes",
-  "isNew": "FALSE",
-  "description": "is a type of software testing where individual units or components of a software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit testing is done during the development (coding phase) of an application by the developers. Unit tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object."
- },
- {
-  "name": "Performance Testing",
-  "ring": "trial",
-  "quadrant": "techniques and processes",
-  "isNew": "TRUE",
-  "description": "generally refers to the practice of modelling the expected usage of a software program by simulating multiple users accessing the program concurrently. As such, this testing is most relevant for multi-user systems; often one built using a client/server model, such as web servers."
- },
- {
-  "name": "Infrastructure as Code (IaC)",
-  "ring": "trial",
-  "quadrant": "techniques and processes",
-  "isNew": "TRUE",
-  "description": "is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration of interactive configuration tools. The IT infrastructure managed by this process comprises both physical equipment, such as bare-metal servers, as well as virtual machines, and associated configuration resources. The definitions may be in a version control system. The code in the definition files may use either scripts or declarative definitions, rather than maintaining the code through manual processes, but IaC more often employs declarative approaches."
- },
- {
-  "name": "Active Directory",
-  "ring": "trial",
-  "quadrant": "tools & platform services",
-  "isNew": "TRUE",
-  "description": "is a directory service developed by Microsoft for Windows domain network. It is included in most Windows Server operating systems as a set of processes and services. Initially, Active Directory was used only for centralized domain management. Know, we leverage Azure Active Directory as our OpenID server."
- },
- {
-  "name": "Kafka",
-  "ring": "adopt",
-  "quadrant": "tools & platform services",
-  "isNew": "TRUE",
-  "description": "is a framework implementation of a software bus using stream-processing. It provides a unified, high-throughput, low-latency platform for handling real-time data feeds."
- },
- {
-  "name": "RabbitMQ",
-  "ring": "adopt",
-  "quadrant": "tools & platform services",
-  "isNew": "FALSE",
-  "description": "is an open-source message broker software that originally implemented the Advanced Message Queueing Protocol (AMQP) and been extended with a plug-in architecture to support Streaming Text Oriented Messaging Protocol, MQ Telemetry Transport, and other protocols."
- }
+  {
+    "name": "SpringBoot",
+    "ring": "adopt",
+    "quadrant": "languages & frameworks",
+    "isNew": "FALSE",
+    "description": "makes it easy to create stand-alone, production-grade Spring based Application that you can just run. It takes an opinionated view of the Spring platform and third-party libraries so we can get started with minimum fuss. Most Spring Boot applications need minimal Spring configuration."
+  },
+  {
+    "name": "Java 8",
+    "ring": "retire",
+    "quadrant": "languages & frameworks",
+    "isNew": "FALSE",
+    "description": "Java is an object-oriented programming and statically typed language that produces software for multiple platforms (write once run anywhere). With the Java 8 release, Java provided supports for functional programming style, new APIs for date-time manipulation, new streaming API, etc."
+  },
+  {
+    "name": "Java 11",
+    "ring": "adopt",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Java 11 is the first long-term-support (LTS) release after Java 8. It comes with new features to provide more functionality beyond Java 8 such as modularity, var keyword, several new methods of String, local variable syntax for Lambda, and absolutely some improvements on the JVM itself."
+  },
+  {
+    "name": "JUnit5",
+    "ring": "adopt",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "is a unit testing framework for Java. JUnit5 is a new version of JUnit that allows multiple runners to work simultaneously compared to its predecessor JUnit4 that only have one test runner to execute tests at a time. JUnit5 also makes good use of Java 8 features and more robust and flexible than JUnit4 since it comes with 3 sub-projects, i.e. JUnit Platform, JUnit Jupiter, and JUnit vintage."
+  },
+  {
+    "name": "JUnit4",
+    "ring": "retire",
+    "quadrant": "languages & frameworks",
+    "isNew": "FALSE",
+    "description": "The most widely used test framework in Java that uses annotations to identify methods that specify a test. It has significant role in the test-driven-development (TDD) process."
+  },
+  {
+    "name": "ReactJS",
+    "ring": "adopt",
+    "quadrant": "languages & frameworks",
+    "isNew": "FALSE",
+    "description": "is a JavaScript library (i.e. UI toolkit) for building user interfaces. It is declarative, component-based, and the strategic direction for all web UI development at Lulu - note our design system ConstructKit assumes react."
+  },
+  {
+    "name": "NextJS",
+    "ring": "trial",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "is a JavaScript framework that gives you the best developer experience with all the features you need for production: hybrid static & server-side rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config is needed. Think of living, CMS v2"
+  },
+  {
+    "name": "NodeJS",
+    "ring": "adopt",
+    "quadrant": "languages & frameworks",
+    "isNew": "FALSE",
+    "description": "is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser."
+  },
+  {
+    "name": "JavaScript",
+    "ring": "adopt",
+    "quadrant": "languages & frameworks",
+    "isNew": "FALSE",
+    "description": "is a high-level interpreted programming language that conforms to the ECMAScript specification with dynamic-typing, prototype-based object orientation, and first-class functions. As a multi-paradigm language, JavaScript supports event-driven, functional, and imperative (including object-oriented and prototype-based) programming styles. There is no escaping it - best you learn to love it :-)."
+  },
+  {
+    "name": "Scrum",
+    "ring": "adopt",
+    "quadrant": "techniques & processes",
+    "isNew": "TRUE",
+    "description": "Within project management, Scrum is a framework for developing, delivering, and sustaining products in a complex environment, with an initial emphasis on software development, although it has been used in other fields including research, sales, marketing and advanced technologies. It is designed for teams of ten or fewer members, who break their work into goals that can be completed within time-boxed iterations called sprints, no longer than one month and most commonly two weeks. The scrum team assess progress in time-boxed daily meetings of 15 minutes or less, called daily scrums (a form of stand-up meeting). At the end of the sprint, the team holds two further meetings: the sprint review which demonstrates the work done to stakeholders to elicit feedback, and sprint restrospective which enables the team to reflect and improve."
+  },
+  {
+    "name": "Reactive Programming",
+    "ring": "adopt",
+    "quadrant": "techniques & processes",
+    "isNew": "TRUE",
+    "description": "Reactive programming is a concept that describes a design paradigm that relies on asynchronous and non-blocking programming logic to handle real-time updates. It provides an efficient means -- the use of automated data streams -- to handle data updates to content whenever a user makes an inquiry."
+  },
+  {
+    "name": "Functional Programming",
+    "ring": "adopt",
+    "quadrant": "techniques and processes",
+    "isNew": "TRUE",
+    "description": "is a programming paradigm where programs are constructed by applying and composing functions. It is a declarative programming paradigm in which function definitions are trees of expressions that map values to other values, rather than a sequence of imperative statements which update the running state of the program."
+  },
+  {
+    "name": "Unit Testing",
+    "ring": "adopt",
+    "quadrant": "techniques and processes",
+    "isNew": "FALSE",
+    "description": "is a type of software testing where individual units or components of a software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit testing is done during the development (coding phase) of an application by the developers. Unit tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object."
+  },
+  {
+    "name": "Performance Testing",
+    "ring": "trial",
+    "quadrant": "techniques and processes",
+    "isNew": "TRUE",
+    "description": "generally refers to the practice of modelling the expected usage of a software program by simulating multiple users accessing the program concurrently. As such, this testing is most relevant for multi-user systems; often one built using a client/server model, such as web servers."
+  },
+  {
+    "name": "Infrastructure as Code (IaC)",
+    "ring": "trial",
+    "quadrant": "techniques and processes",
+    "isNew": "TRUE",
+    "description": "is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration of interactive configuration tools. The IT infrastructure managed by this process comprises both physical equipment, such as bare-metal servers, as well as virtual machines, and associated configuration resources. The definitions may be in a version control system. The code in the definition files may use either scripts or declarative definitions, rather than maintaining the code through manual processes, but IaC more often employs declarative approaches."
+  },
+  {
+    "name": "Active Directory",
+    "ring": "trial",
+    "quadrant": "tools & platform services",
+    "isNew": "TRUE",
+    "description": "is a directory service developed by Microsoft for Windows domain network. It is included in most Windows Server operating systems as a set of processes and services. Initially, Active Directory was used only for centralized domain management. Know, we leverage Azure Active Directory as our OpenID server."
+  },
+  {
+    "name": "Kafka",
+    "ring": "adopt",
+    "quadrant": "tools & platform services",
+    "isNew": "TRUE",
+    "description": "is a framework implementation of a software bus using stream-processing. It provides a unified, high-throughput, low-latency platform for handling real-time data feeds."
+  },
+  {
+    "name": "RabbitMQ",
+    "ring": "adopt",
+    "quadrant": "tools & platform services",
+    "isNew": "FALSE",
+    "description": "is an open-source message broker software that originally implemented the Advanced Message Queueing Protocol (AMQP) and been extended with a plug-in architecture to support Streaming Text Oriented Messaging Protocol, MQ Telemetry Transport, and other protocols."
+  }
 ]
