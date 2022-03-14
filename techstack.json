@@ -4,7 +4,7 @@
   "ring": "adopt",
   "quadrant": "languages & frameworks",
   "isNew": "FALSE",
-  "description": "makes it easy to create stand-alone, production-grade Spring based Application that you can \"just run\". It takes an opinionated view of the Spring platform and third-party libraries so we can get started with minimum fuss. Most Spring Boot applications need minimal Spring configuration."
+  "description": "makes it easy to create stand-alone, production-grade Spring based Application that you can just run. It takes an opinionated view of the Spring platform and third-party libraries so we can get started with minimum fuss. Most Spring Boot applications need minimal Spring configuration."
  },
  {
   "name": "Java 8",
