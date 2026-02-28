@@ -29,6 +29,19 @@ function radar_visualization(config) {
     return x - Math.floor(x);
   }
 
+  var ring_count = config.rings.length;
+  var outer_radius = 400;
+  var ring_weights =
+    Array.isArray(config.ring_weights) && config.ring_weights.length === ring_count
+      ? config.ring_weights
+      : Array.from({ length: ring_count }, function () {
+          return 1;
+        });
+  var total_ring_weight = ring_weights.reduce(function (sum, w) {
+    return sum + w;
+  }, 0);
+  var ring_step = outer_radius / total_ring_weight;
+
   function random_between(min, max) {
     return min + random() * (max - min);
   }
@@ -45,12 +58,14 @@ function radar_visualization(config) {
     { radial_min: -0.5, radial_max: 0, factor_x: 1, factor_y: -1 },
   ];
 
-  const rings = [
-    { radius: 130 },
-    { radius: 220 },
-    { radius: 310 },
-    { radius: 400 },
-  ];
+  const rings = Array.from({ length: ring_count }, function (_, i) {
+    var cumulative_weight = ring_weights
+      .slice(0, i + 1)
+      .reduce(function (sum, w) {
+        return sum + w;
+      }, 0);
+    return { radius: ring_step * cumulative_weight };
+  });
 
   const title_offset = { x: -675, y: -420 };
 
@@ -99,6 +114,30 @@ function radar_visualization(config) {
     };
   }
 
+  function avoid_ring_label(cartesian_point, ring_index) {
+    if (!config.print_layout) {
+      return cartesian_point;
+    }
+
+    // Keep-out area around the ring label text (which is placed at the top of each ring).
+    // This avoids blips overlapping the label while keeping the label inside the ring.
+    var label_x = 0;
+    var label_y = -rings[ring_index].radius + 62;
+    var label_half_width = 90;
+    var label_half_height = 18;
+    var padding = 10;
+
+    if (
+      Math.abs(cartesian_point.x - label_x) < label_half_width &&
+      Math.abs(cartesian_point.y - label_y) < label_half_height
+    ) {
+      // Push the point downward out of the label zone.
+      cartesian_point.y = label_y + label_half_height + padding;
+    }
+
+    return cartesian_point;
+  }
+
   function segment(quadrant, ring) {
     var polar_min = {
       t: quadrants[quadrant].radial_min * Math.PI,
@@ -113,20 +152,24 @@ function radar_visualization(config) {
       y: 15 * quadrants[quadrant].factor_y,
     };
     var cartesian_max = {
-      x: rings[3].radius * quadrants[quadrant].factor_x,
-      y: rings[3].radius * quadrants[quadrant].factor_y,
+      x: rings[rings.length - 1].radius * quadrants[quadrant].factor_x,
+      y: rings[rings.length - 1].radius * quadrants[quadrant].factor_y,
     };
     return {
       clipx: function (d) {
         var c = bounded_box(d, cartesian_min, cartesian_max);
         var p = bounded_ring(polar(c), polar_min.r + 15, polar_max.r - 15);
-        d.x = cartesian(p).x; // adjust data too!
+        var adjusted = avoid_ring_label(cartesian(p), ring);
+        d.x = adjusted.x; // adjust data too!
+        d.y = adjusted.y;
         return d.x;
       },
       clipy: function (d) {
         var c = bounded_box(d, cartesian_min, cartesian_max);
         var p = bounded_ring(polar(c), polar_min.r + 15, polar_max.r - 15);
-        d.y = cartesian(p).y; // adjust data too!
+        var adjusted = avoid_ring_label(cartesian(p), ring);
+        d.x = adjusted.x;
+        d.y = adjusted.y; // adjust data too!
         return d.y;
       },
       random: function () {
@@ -154,8 +197,8 @@ function radar_visualization(config) {
   // partition entries according to segments
   var segmented = new Array(4);
   for (var quadrant = 0; quadrant < 4; quadrant++) {
-    segmented[quadrant] = new Array(4);
-    for (var ring = 0; ring < 4; ring++) {
+    segmented[quadrant] = new Array(ring_count);
+    for (var ring = 0; ring < ring_count; ring++) {
       segmented[quadrant][ring] = [];
     }
   }
@@ -167,7 +210,7 @@ function radar_visualization(config) {
   // assign unique sequential id to each entry
   var id = 1;
   for (var quadrant of [2, 3, 1, 0]) {
-    for (var ring = 0; ring < 4; ring++) {
+    for (var ring = 0; ring < ring_count; ring++) {
       var entries = segmented[quadrant][ring];
       entries.sort(function (a, b) {
         return a.label.localeCompare(b.label);
@@ -184,8 +227,8 @@ function radar_visualization(config) {
 
   function viewbox(quadrant) {
     return [
-      Math.max(0, quadrants[quadrant].factor_x * 400) - 420,
-      Math.max(0, quadrants[quadrant].factor_y * 400) - 420,
+      Math.max(0, quadrants[quadrant].factor_x * outer_radius) - 420,
+      Math.max(0, quadrants[quadrant].factor_y * outer_radius) - 420,
       440,
       440,
     ].join(" ");
@@ -210,16 +253,16 @@ function radar_visualization(config) {
   grid
     .append("line")
     .attr("x1", 0)
-    .attr("y1", -400)
+    .attr("y1", -outer_radius)
     .attr("x2", 0)
-    .attr("y2", 400)
+    .attr("y2", outer_radius)
     .style("stroke", config.colors.grid)
     .style("stroke-width", 1);
   grid
     .append("line")
-    .attr("x1", -400)
+    .attr("x1", -outer_radius)
     .attr("y1", 0)
-    .attr("x2", 400)
+    .attr("x2", outer_radius)
     .attr("y2", 0)
     .style("stroke", config.colors.grid)
     .style("stroke-width", 1);
@@ -263,10 +306,17 @@ function radar_visualization(config) {
   }
 
   function legend_transform(quadrant, ring, index = null) {
-    var dx = ring < 2 ? 0 : 120;
+    var rings_per_column = Math.ceil(ring_count / 2);
+    var column = ring < rings_per_column ? 0 : 1;
+    var dx = column === 0 ? 0 : 120;
+
     var dy = index == null ? -16 : index * 12;
-    if (ring % 2 === 1) {
-      dy = dy + 36 + segmented[quadrant][ring - 1].length * 12;
+
+    // Stack each ring block below the previous blocks in the same column.
+    // Each block consists of a ring label (approx 36px) + N items (12px each).
+    var ring_start = column === 0 ? 0 : rings_per_column;
+    for (var r = ring_start; r < ring; r++) {
+      dy = dy + 36 + segmented[quadrant][r].length * 12;
     }
     return translate(
       legend_offset[quadrant].x + dx,
@@ -305,7 +355,7 @@ function radar_visualization(config) {
         .text(config.quadrants[quadrant].name)
         .style("font-family", "Arial, Helvetica")
         .style("font-size", "18px");
-      for (var ring = 0; ring < 4; ring++) {
+      for (var ring = 0; ring < ring_count; ring++) {
         legend
           .append("text")
           .attr("transform", legend_transform(quadrant, ring))

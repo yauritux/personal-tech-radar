@@ -5,7 +5,7 @@
 
     <!-- <script src="https://d3js.org/d3.v4.min.js"></script>-->
     <script src="d3.v4.min.js"></script>
-    <script src="radar.js"></script>
+    <script src="radar.js?v=20260228"></script>
 
     <link rel="stylesheet" href="radar.css" />
   </head>
@@ -36,6 +36,7 @@
           { name: "ASSESS", color: "#fbdb84" },
           { name: "HOLD/RETIRE", color: "#efafa9" },
         ],
+        ring_weights: [1.6, 1, 1, 1],
         print_layout: true,
         // zoomed_quadrant: 0,
         //ENTRIES
@@ -137,13 +138,6 @@
             active: true,
             moved: 1,
           },
-          {
-            quadrant: 2,
-            ring: 0,
-            label: "Unit Testing",
-            active: true,
-            moved: 0,
-          },
 	  {
 	    quadrant: 2,
 	    ring: 0,
@@ -176,13 +170,6 @@
           {
             quadrant: 2,
             ring: 2,
-            label: "Volume Testing",
-            active: true,
-            moved: 0,
-          },
-          {
-            quadrant: 2,
-            ring: 2,
             label: "Polylith Architecture",
             link: "https://polylith.gitbook.io/polylith/",
             active: true,
@@ -191,7 +178,7 @@
           {
             quadrant: 2,
             ring: 1,
-            label: "Soak Testing",
+            label: "Spike Testing",
             active: true,
             moved: 1,
           },
@@ -592,7 +579,7 @@
           },
           {
             quadrant: 1,
-            ring: 0,
+            ring: 2,
             label: "K6",
             link: "https://k6.io/",
             active: true,
@@ -667,7 +654,7 @@
 	  },
           {
             quadrant: 1,
-            ring: 0,
+            ring: 2,
             label: "Terragrunt",
             link: "https://terragrunt.gruntwork.io/",
             active: true,
@@ -715,15 +702,23 @@
           },
           {
             quadrant: 1,
-            ring: 1,
+            ring: 2,
             label: "Backstage",
             link: "https://backstage.io/",
             active: true,
-            moved: 1
+            moved: 0,
           },
           {
             quadrant: 1,
             ring: 1,
+            label: "Apollo",
+            link: "https://www.apollographql.com/",
+            active: true,
+            moved: 0,
+          },
+          {
+            quadrant: 1,
+            ring: 2,
             label: "Hasura",
             link: "https://hasura.io/",
             active: true,
@@ -807,9 +802,17 @@
             active: true,
             moved: 0,
           },
+          {
+            quadrant: 1,
+            ring: 0,
+            label: "Kind",
+            link: "https://kind.sigs.k8s.io/",
+            active: true,
+            moved: 0,
+          },
 	  {
  	    quadrant: 1,
-	    ring: 0,
+	    ring: 2,
 	    label: "k3d",
 	    link: "https://k3d.io",
 	    active: true,
@@ -817,7 +820,7 @@
 	  },
 	  {
             quadrant: 1,
-	    ring: 0,
+	    ring: 2,
  	    label: "k3s",
 	    link: "https://k3s.io",
 	    active: true,
@@ -1242,27 +1245,27 @@
             label: "Flowise",
             link: "https://flowiseai.com/",
             active: true,
-            moved: 1
+            moved: 0,
           },
           {
             quadrant: 0,
-            ring: 1,
+            ring: 2,
             label: "Reflex",
             link: "https://reflex.dev/",
             active: true,
-            moved: 1
+            moved: 0,
           },
           {
             quadrant: 0,
-            ring: 1,
+            ring: 2,
             label: "Rust",
             link: "https://www.rust-lang.org/",
             active: true,
-            moved: 1
+            moved: 0,
           },
           {
             quadrant: 0,
-            ring: 1,
+            ring: 2,
             label: "Cucumber",
             link: "https://cucumber.io/",
             active: true,
@@ -1288,13 +1291,6 @@
             quadrant: 0,
             ring: 0,
             label: "SpringBoot",
-            active: true,
-            moved: 0,
-          },
-          {
-            quadrant: 0,
-            ring: 0,
-            label: "SpringCloud",
             active: true,
             moved: 0,
           },
@@ -1435,7 +1431,7 @@
           },
           {
             quadrant: 1,
-            ring: 2,
+            ring: 1,
             label: "podman",
             link: "https://podman.io/",
             active: true,
